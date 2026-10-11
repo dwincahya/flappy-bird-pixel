@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Press Start 2P", ui-monospace, monospace;
+  --animate-float: float 1s steps(1, end) infinite;
+  --animate-hop: hop 1.2s steps(1, end) infinite;
+  --animate-pop: pop 0.3s steps(3, end) both;
+  @keyframes float { 50% { transform: translateY(-6px); } }
+  @keyframes hop { 25% { transform: translateY(-8px); } 50% { transform: translateY(0); } }
+  @keyframes pop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+}
+
+/* teks pixel dengan garis tepi tegas; warna: [--ol:#c4561a], tebal: [--s:2px] */
+@utility outline-text {
+  --o: var(--s, 3px);
+  text-shadow:
+    var(--o) 0 var(--ol, #3b2412), calc(var(--o) * -1) 0 var(--ol, #3b2412),
+    0 var(--o) var(--ol, #3b2412), 0 calc(var(--o) * -1) var(--ol, #3b2412),
+    var(--o) var(--o) var(--ol, #3b2412), calc(var(--o) * -1) calc(var(--o) * -1) var(--ol, #3b2412),
+    var(--o) calc(var(--o) * -1) var(--ol, #3b2412), calc(var(--o) * -1) var(--o) var(--ol, #3b2412),
+    0 calc(var(--o) * 2) 0 rgb(0 0 0 / 0.25);
+}
+@utility pixelated { image-rendering: pixelated; }
+
+@layer base {
+  html, body, #app { height: 100%; margin: 0; }
+  body { font-family: var(--font-display); background: #6ec6ff; overscroll-behavior: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) { .animate-float, .animate-hop { animation: none; } }
