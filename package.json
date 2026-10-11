@@ -1,0 +1,16 @@
+{
+  "name": "flappy-bird-pixel",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": { "dev": "vite", "build": "vite build", "preview": "vite preview", "typecheck": "vue-tsc --noEmit" },
+  "dependencies": { "@fontsource/press-start-2p": "^5.0.0", "vue": "^3.5.0" },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.8.0",
+    "vite": "^7.0.0",
+    "vue-tsc": "^3.0.0"
+  }
+}
